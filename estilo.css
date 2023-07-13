@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+:root{
+    --dark-blue: #1E2140;
+    --blue-grey: #797C9B;
+    --salmon: #F77070;
+    --grey: #D5DEFE;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-blue);
+}
+
+#pomodoro h2{
+    font-size: 24px;
+    color: var(--grey);
+    text-align: center;
+    margin-bottom: 55px;
+}
+#pomodoro ul{
+    width: 376px;
+    margin: 0 auto;
+    --left: 8px;
+    display: flex;
+    padding: 8px;
+    border-radius: 35px;
+    background-color: #00000050;
+    position: relative;
+}
+#pomodoro ul:after{
+    content: "";
+    width: 120px;
+    height: 48px;
+    position: absolute;
+    top: 8px;
+    left: var(--left);
+    border-radius: 35px;
+    background-color: var(--salmon);
+    transition-duration: 200ms;
+}
+#pomodoro ul li{
+    width: 120px;
+    line-height: 48px;
+    text-align: center;
+    color: var(--grey);
+    opacity: .7;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+#pomodoro ul li.active{
+    color: var(--dark-blue);
+    opacity: 1;
+}
+#pomodoro .relogio{
+    width: 410px;
+    height: 410px;
+    border-radius: 100%;
+    background-color: #00000050;
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#pomodoro .relogio #hora{
+    font-size: 75px;
+    font-weight: bold;
+    color: var(--grey);
+    position: relative;
+}
+#pomodoro .relogio #state{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    position: absolute;
+    top: calc(100% + 30px);
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+#pomodoro .relogio #state:hover{
+    color: var(--salmon);
+}
+#pomodoro .relogio #segundos{
+    width: 380px;
+    height: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid red;
+}
