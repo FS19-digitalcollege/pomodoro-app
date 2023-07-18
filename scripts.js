@@ -15,18 +15,73 @@ function removeActive(){
     }
 }
 
-function desenhaSegundos(angulo){
-    let context = segundos.getContext('2d');
-    // context.globalCompositeOperation = 'destination-out';
-    context.beginPath();
-    context.arc(50,50,50,angulo*Math.PI,1.5*Math.PI);
-    context.fillStyle = '#FF0000';
-    context.fill();
-    context.stroke();
+let config = document.querySelector('.configuracoes');
+settings.onclick = function(){
+    config.classList.add('active');
 }
 
-let inicio = 0;
-setInterval(function(){
-    inicio = inicio + .1;
-    desenhaSegundos(inicio);
-}, 1000);
+fecharSettings.onclick = function(){
+    config.classList.remove('active');
+}
+
+let tempo1 = Number(localStorage.getItem('tempo1')) || 0;
+let tempo2 = Number(localStorage.getItem('tempo2')) || 0;
+let tempo3 = Number(localStorage.getItem('tempo3')) || 0;
+
+confirmar.onclick = function(){
+    tempo1 = pomodoroTime.value;
+    tempo2 = shortTime.value;
+    tempo3 = longTime.value;
+    localStorage.setItem('tempo1', tempo1);
+    localStorage.setItem('tempo2', tempo2);
+    localStorage.setItem('tempo3', tempo3);
+};
+
+state.onclick = function(){
+    contaSegundos();
+}
+
+function contaSegundos(){
+    let segundos = 0;
+    let minutos = 0;
+    setInterval(function(){
+        if(segundos < 59){
+            segundos = segundos + 1;
+            hora.innerHTML = segundos;
+        }else{
+            segundos = 0;
+        }
+    }, 1000);
+}
+
+
+// function desenhaSegundos(angulo){
+//     let context = segundos.getContext('2d');
+//     context.beginPath();
+//     context.arc(150,75,70,0,angulo*Math.PI);
+//     context.lineWidth = 4;
+//     context.strokeStyle = "blue";
+//     context.stroke();
+//     context.closePath();
+//     if(angulo > 2){
+//         context.save();
+//         context.globalCompositeOperation = 'destination-out';
+//         context.beginPath();
+//         context.clearRect(150,75,70,760,380);
+//         context.arc(150,75,70,0,0);
+//         context.restore();
+//         // context.closePath();
+//     }
+// }
+
+// let inicio = 0;
+// let pedaco = 1.5 / 60;
+// setInterval(function(){
+//     if(inicio <= 2){
+//         inicio = inicio + pedaco;
+//     }else{
+//         inicio = pedaco
+//     }
+//     desenhaSegundos(inicio);
+//     console.log(inicio);
+// }, 100);

@@ -9,7 +9,7 @@
 <body>
     <section id="pomodoro">
         <h2>pomodoro</h2>
-    
+
         <ul>
             <li class="active">
                 pomodoro
@@ -25,8 +25,32 @@
             <canvas id="segundos"></canvas>
             <h1 id="hora">00:00 <span id="state">start</span></h1>
         </div>
+
+        <box-icon id="settings" type='solid' name='cog'></box-icon>
     </section>
 
+    <div class="configuracoes">
+        <h3>Configurações <box-icon id="fecharSettings" name="x"></box-icon></h3>
+        <h6>Tempo (minutos)</h6>
+        <div class="tempos">
+            <div class="tempo">
+                <span>pomodoro</span>
+                <input id="pomodoroTime" type="number" min="1" max="60">
+            </div>
+            <div class="tempo">
+                <span>short break</span>
+                <input id="shortTime" type="number" min="1" max="10">
+            </div>
+            <div class="tempo">
+                <span>long break</span>
+                <input id="longTime" type="number" min="1" max="20">
+            </div>
+        </div>
+        <button id="confirmar">Confirmar</button>
+    </div>
+
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
